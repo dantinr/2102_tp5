@@ -15,9 +15,15 @@ Route::get('think', function () {
 
 //当用户访问 xxx.com/hello/xxx  , 找到 Index控制器中的 hello方法
 Route::get('hello/:name', 'index/hello');
-Route::get('login', 'index/login');         // 用户登录
-Route::get('user/reg', 'index/reg');         // 用户注册
-Route::get('goods/list', 'index/goodsList');         // 商品列表
+
+//商品
+Route::get('goods/:id', 'goods/detail');         //商品详情
+
+//用户
+Route::get('user/login','user/login');      //登录
+Route::get('user/reg', 'user/reg');         // 用户注册
+
+
 
 
 return [
