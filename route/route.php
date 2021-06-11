@@ -22,6 +22,8 @@ Route::get('goods/:id', 'goods/detail');         //商品详情
 //用户
 Route::get('user/login','user/login');      //登录
 Route::get('user/reg', 'user/reg');         // 用户注册
+Route::post('user/reg', 'user/reg2');         // 用户注册
+
 
 Route::get('test/addstu','test/addStu');        //随机添加数据
 Route::get('test/add100','test/add100');        //随机添加数据
