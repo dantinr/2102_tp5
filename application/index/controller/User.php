@@ -36,6 +36,19 @@ class User extends Controller
     }
 
     /**
+     * 退出登录
+     */
+    public function logout()
+    {
+        //清除 session中 的用户信息
+        Session::delete('user_id');
+        Session::delete('user_name');
+
+        //跳转页面
+        return redirect('/user/login');
+    }
+
+    /**
      * 登录逻辑处理
      */
     public function loginDo()
@@ -49,6 +62,15 @@ class User extends Controller
         if($u){
             //验证密码
             if( password_verify($pass,$u['password']) ){
+
+                // 记录登录历史
+                $history = [
+                    'uid'           => $u['user_id'],
+                    'login_time'    => time(),
+                    'login_ip'      => $_SERVER['REMOTE_ADDR'],     // ip
+                    'ua'            => $_SERVER['HTTP_USER_AGENT'], // ua
+                ];
+                Db::table('login_history')->insert($history);
 
                 //设置session
                 Session::set('user_id',$u['user_id']);      // $_SEESION['user_id'] = $u['user_id']
@@ -72,12 +94,28 @@ class User extends Controller
     public function center()
     {
 
+        //判断用户登录状态
+        $sess = Session::get();
+
+        if(empty($sess['user_id']) && empty($sess['user_name'])){
+            // 未登录
+            return redirect('/user/login');
+        }
+
         $user_id = Session::get('user_id');
         //查询数据库用户信息
         $u = Db::table('p_users')->field('user_id,user_name,email,mobile')->where("user_id",$user_id)->find();
 
+        //查询用户的登录历史
+        $history = Db::table('login_history')->where('uid',$user_id)->select();
+        //处理字段
+        foreach ($history as $k=>$v){
+            $history[$k]['login_time'] = date('Y-m-d H:i:s',$v['login_time']);
+        }
+
         $this->assign('name',$u['user_name']);
         $this->assign('email',$u['email']);
+        $this->assign('history',$history);
         return $this->fetch();
     }
 

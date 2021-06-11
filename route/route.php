@@ -18,6 +18,7 @@ Route::get('hello/:name', 'index/hello');
 
 //商品
 Route::get('goods/:id', 'goods/detail');         //商品详情
+Route::get('goodslist','goods/goodsList');      //商品列表
 
 //用户
 Route::get('user/login','user/login');      //登录页面展示
@@ -25,6 +26,8 @@ Route::post('user/login','user/loginDo');      //登录逻辑处理
 Route::get('user/reg', 'user/reg');         // 用户注册
 Route::post('user/reg', 'user/reg2');         // 用户注册
 Route::get('user/center', 'user/center');         // 用户中心
+Route::get('user/logout', 'user/logout');         // 退出登录
+
 
 
 Route::get('test/addstu','test/addStu');        //随机添加数据

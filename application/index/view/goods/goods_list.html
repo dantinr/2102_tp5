@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品列表</title>
+</head>
+<body>
+  <h2>商品列表</h2>
+
+    <ul>
+        {volist name="list" id="vo"}
+        <li> {$vo.goods_id} - <a target="_blank" href="/goods/{$vo.goods_id}">{$vo.goods_name}</a>  - {$vo.shop_price}</li>
+        {/volist}
+
+    </ul>
+</body>
+</html>

@@ -25,4 +25,20 @@ class Goods extends Controller
 
     }
 
+    /**
+     * 商品列表
+     */
+    public function goodsList()
+    {
+        // 每页显示 10 条
+        $list = Db::table('p_goods')->field('goods_id,goods_name,shop_price')
+            ->order('goods_id','desc')->limit(10)->select();
+
+        //echo '<pre>';print_r($list);echo '</pre>';
+
+        //渲染视图
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
 }
