@@ -23,6 +23,7 @@ Route::get('goods/:id', 'goods/detail');         //商品详情
 Route::get('user/login','user/login');      //登录
 Route::get('user/reg', 'user/reg');         // 用户注册
 Route::post('user/reg', 'user/reg2');         // 用户注册
+Route::get('user/center', 'user/center');         // 用户中心
 
 
 Route::get('test/addstu','test/addStu');        //随机添加数据

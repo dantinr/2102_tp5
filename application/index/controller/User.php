@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 use think\Controller;
+use think\Db;
 
 
 class User extends Controller
@@ -31,5 +32,22 @@ class User extends Controller
     {
         return $this->fetch();
     }
+
+
+    /**
+     * 个人中心
+     */
+    public function center()
+    {
+
+        $user_id = 123;
+        //查询数据库用户信息
+        $u = Db::table('p_users')->field('user_id,user_name,email,mobile')->where("user_id",$user_id)->find();
+
+        $this->assign('name',$u['user_name']);
+        $this->assign('email',$u['email']);
+        return $this->fetch();
+    }
+
 
 }
