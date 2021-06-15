@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票</title>
+</head>
+<body>
+    <h2> 请给喜欢的电影打分(满分100)</h2><hr>
+    <form action="/movie/vote" method="post">
+        <table border="1">
+            <tr>
+                <th>电影ID</th>
+                <th>电影名</th>
+                <th>分数</th>
+            </tr>
+            {foreach $list as $k=>$v}
+            <tr>
+                <td>
+                    {$v.id}
+                </td>
+                <td align="center">
+                    {$v.movie_name} 【{$v.score}】
+                </td>
+                <td>
+                    <input type="text" name="{$v.id}" placeholder="您的分数">
+                </td>
+            </tr>
+            {/foreach}
+            <tr>
+                <td> </td>
+                <td><input type="submit" value="提交评分"> </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

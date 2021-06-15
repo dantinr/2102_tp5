@@ -39,6 +39,14 @@ Route::get('test/addstu','test/addStu');        //随机添加数据
 Route::get('test/add100','test/add100');        //随机添加数据
 
 
+//电影
+Route::get('movie/vote','movie/vote');        //投票页面
+Route::post('movie/vote','movie/voteDo');        //投票逻辑
+
+
+
+
+
 return [
 
 ];

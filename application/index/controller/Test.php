@@ -1,8 +1,9 @@
 <?php
 namespace app\index\controller;
 use think\Db;
+use think\Controller;
 
-class Test
+class Test extends Controller
 {
     /**
      * 随机添加数据
@@ -81,4 +82,7 @@ class Test
         return $res;
 
     }
+
+
+
 }
