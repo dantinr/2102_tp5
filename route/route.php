@@ -28,6 +28,11 @@ Route::post('user/reg', 'user/reg2');         // 用户注册
 Route::get('user/center', 'user/center');         // 用户中心
 Route::get('user/logout', 'user/logout');         // 退出登录
 
+Route::get('/book/add','book/add');             //添加页面
+Route::post('/book/addDo','book/addDo');             //添加逻辑
+Route::get('/book/list','book/bookList');             //列表
+Route::get('/book/delete/:id','book/del');             //删除
+
 
 
 Route::get('test/addstu','test/addStu');        //随机添加数据
