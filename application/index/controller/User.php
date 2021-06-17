@@ -4,10 +4,43 @@ namespace app\index\controller;
 use think\Controller;
 use think\Db;
 use think\facade\Session;
+//引入User 模型
+use app\index\model\User as UserModel;
 
 
 class User extends Controller
 {
+
+
+    /**
+     * 通过模型获取 用户列表
+     */
+    public function test1()
+    {
+        //使用模型 UserModel
+        $u = UserModel::where("userid",79)->find();
+        //var_dump($u);
+        echo '<pre>';print_r($u);echo '</pre>';
+        echo '<hr>';
+
+        echo "用户名： ". $u->username;echo '</br>';
+        echo "Email： ". $u->email;echo '</br>';
+    }
+
+    /**
+     * 通过模型 insert 数据
+     */
+    public function test2()
+    {
+        $u = new UserModel();
+        $u->username = "zhangsan222";
+        $u->email = 'zhangsan222@qq.com';
+        $u->mobile = '13312347777';
+        $num = $u->save();
+        var_dump($num);
+
+    }
+
     /**
      * 用户注册 前台展示
      */

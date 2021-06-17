@@ -26,6 +26,8 @@ Route::get('orders','orders/info');      //订单统计
 
 
 //用户
+Route::get('user/test1','user/test1');
+Route::get('user/test2','user/test2');
 Route::get('user/login','user/login');      //登录页面展示
 Route::post('user/login','user/loginDo');      //登录逻辑处理
 Route::get('user/reg', 'user/reg');         // 用户注册
