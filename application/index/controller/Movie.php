@@ -61,4 +61,36 @@ class Movie extends Controller
         }
     }
 
+    /**
+     * 订座页面
+     */
+    public function seat()
+    {
+        //计算今天开始的时间戳
+        $today_timestamp = strtotime(date("Y-m-d"));
+        echo $today_timestamp;echo '</br>';
+
+        $list = Db::table('seats')->where('add_time','>',$today_timestamp)->select();
+        echo '<pre>';print_r($list);echo '</pre>';
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
+    /**
+     * 作为预订
+     */
+    public function booking()
+    {
+        $uid = Session::get('user_id');
+        echo '<pre>';print_r($_POST);echo '</pre>';
+        $data = [
+            'seat_no'   => intval($_POST['seat_no']),
+            'uid'       => $uid,
+            'add_time'  => time()
+        ];
+        $res = Db::table('seats')->insert($data);
+        var_dump($res);
+        return redirect('/user/center');
+    }
+
 }

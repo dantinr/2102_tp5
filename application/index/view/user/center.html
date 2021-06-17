@@ -6,9 +6,10 @@
 </head>
 <body>
     <h2>个人中心</h2>
-    <p> 欢迎:  {$name}   | <a href="/user/logout">退出登录</a> </p>
-    <p> Email: {$email} </p>
-    <p>登录时间： 2021-6-11 14:07</p>
+    <p> 欢迎:  {$name} </p> <br>
+        <a href="/my/seat">我的预订</a>
+        <a href="/user/logout">退出登录</a>
+    <hr>
 
     <ul>
         {foreach $history as $key=>$vo }

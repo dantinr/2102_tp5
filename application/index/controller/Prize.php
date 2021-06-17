@@ -49,6 +49,7 @@ class Prize extends Controller
             'rand_num'      => $rand_num
         ];
 
+
         $row_num = Db::table('prize')->insert($data);
 
     }

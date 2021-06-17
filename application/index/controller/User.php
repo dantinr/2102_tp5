@@ -119,5 +119,16 @@ class User extends Controller
         return $this->fetch();
     }
 
+    /**
+     * 我的预订
+     */
+    public function seat()
+    {
+        $uid = Session::get('user_id');
+        $list = Db::table('seats')->where('uid',$uid)->select();
+
+        $this->assign('seats',$list);
+        return $this->fetch();
+    }
 
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的预订</title>
+</head>
+<body>
+    <table border="1">
+        <caption> <h3>我的预订</h3> </caption>
+        <tr>
+            <td>座位号</td>
+            <td>预订时间</td>
+        </tr>
+        {foreach $seats as $k=>$v}
+        <tr>
+            <td> {$v['seat_no']} </td>
+            <td> {$v['add_time'] | date='Y-m-d H:i:s'} </td>
+        </tr>
+        {/foreach}
+    </table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订座</title>
+
+  <style>
+    #container {
+      border: 1px solid green;
+      width: 600px;
+      padding: 20px;
+    }
+    .seat {
+      display: inline-block;
+      border: 1px solid #000;
+      width: 100px;
+      height: 100px;
+      margin-right: 10px;
+      margin-top: 5px;
+      background-color: darkseagreen;
+    }
+
+    .ordered {
+      background-color: orangered;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+
+      {for start="0" end="10"}
+      {if $list[$i]}
+      <div class="seat">{$i+1}</div>
+      {/for}
+
+  </div>
+  <hr>
+  <form action="/seat/booking" method="post">
+    <p>请选择座位号： <input type="text" name="seat_no">   |
+      <input type="submit" value="预订"></p>
+  </form>
+
+</body>
+</html>
+
+
