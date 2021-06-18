@@ -61,6 +61,7 @@ Route::get('prize','prize/index');          //抽奖页面
 
 //订单
 Route::get('order/list','orders/olist');            //订单列表
+Route::get('order/info','orders/info');            //订单列表
 
 
 
