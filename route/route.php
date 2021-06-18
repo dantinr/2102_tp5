@@ -46,7 +46,7 @@ Route::get('/book/delete/:id','book/del');             //删除
 Route::get('test/addstu','test/addStu');        //随机添加数据
 Route::get('test/add100','test/add100');        //随机添加数据
 Route::get('test/form','test/form1');
-Route::post('test/test1','test/test1');
+Route::get('test/test1','test/test1');
 
 
 //电影

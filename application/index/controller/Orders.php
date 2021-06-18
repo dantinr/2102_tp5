@@ -59,4 +59,13 @@ class Orders extends Controller
 
         return $this->fetch();
     }
+
+    public function test()
+    {
+        $data = [
+            ['user_name'=>"zhangsan",'email'=>'zhangsan@qq.com','age'=>11],
+            ['user_name'=>"lis",'email'=>'lisi@qq.com','age'=>22],
+        ];
+        Db::table('users')->insertAll($data);
+    }
 }

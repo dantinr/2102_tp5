@@ -3,6 +3,7 @@ namespace app\index\controller;
 use think\Db;
 use think\Controller;
 use think\facade\Request;
+use think\facade\Session;
 
 class Test extends Controller
 {
@@ -21,16 +22,36 @@ class Test extends Controller
 
     public function test1()
     {
-        echo '<pre>';print_r($_GET);echo '</pre>';
-        echo '<pre>';print_r(Request::param('username'));echo '</pre>';echo '</br>';
-        echo '<pre>';print_r(Request::param('email'));echo '</pre>';echo '</br>';
-        echo '<pre>';print_r(Request::param());echo '</pre>';
 
-//        echo '<pre>';print_r($_GET);echo '</pre>';
-//        echo '<pre>';print_r($_POST);echo '</pre>';
-//        echo '<hr>';
-//        echo "用户名：" . $this->request->param('username');echo '</br>';
-//        echo '<pre>';print_r($this->request->param());echo '</pre>';
+        echo Session::get('user_id');echo '</br>';
+        echo  session('user_id');echo '</br>';
+        die;
+
+        $str1 = "%a-b-c-d-e-f-g&";
+        echo "源字符串: ". $str1;echo '</br>';
+        echo "strrev: ". strrev($str1);echo '</br>';
+        echo 'md5: '. md5($str1);echo '</br>';
+        echo 'sha1: ' . sha1($str1);echo '</br>';
+        echo 'ltrim: '.ltrim($str1,'%');echo '</br>';
+        echo 'trim: '.rtrim($str1,'&');echo '</br>';
+        echo '<hr>';
+        //计算字符串长度
+        $len = strlen($str1);
+        //截取字符串
+        $str2 = substr($str1,2,5);
+        //获取位置
+        echo strpos($str1,'b');
+
+
+
+
+//        $arr1 = explode('-',$str1);
+//        dump($arr1);
+
+//        $arr2 = ['a','b','c','d'];
+//        $str2 = implode('#',$arr2);
+//        dump($str2);
+
     }
 
     /**
