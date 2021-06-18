@@ -2,9 +2,37 @@
 namespace app\index\controller;
 use think\Db;
 use think\Controller;
+use think\facade\Request;
 
 class Test extends Controller
 {
+
+    public function form1()
+    {
+
+        $req = request()->param();
+        dump($req);
+//        echo '<pre>';print_r($_GET['xxx']);echo '</pre>';
+//        //$this->success('XXX成功','/user/center');
+//        //$this->error('XXX失败,正在跳转至登录页面','/user/login');
+//        $this->assign('xxx',$_GET['xxx']);
+//        return $this->fetch();
+    }
+
+    public function test1()
+    {
+        echo '<pre>';print_r($_GET);echo '</pre>';
+        echo '<pre>';print_r(Request::param('username'));echo '</pre>';echo '</br>';
+        echo '<pre>';print_r(Request::param('email'));echo '</pre>';echo '</br>';
+        echo '<pre>';print_r(Request::param());echo '</pre>';
+
+//        echo '<pre>';print_r($_GET);echo '</pre>';
+//        echo '<pre>';print_r($_POST);echo '</pre>';
+//        echo '<hr>';
+//        echo "用户名：" . $this->request->param('username');echo '</br>';
+//        echo '<pre>';print_r($this->request->param());echo '</pre>';
+    }
+
     /**
      * 随机添加数据
      */

@@ -38,13 +38,15 @@ Route::get('my/seat', 'user/seat');         // 我的预订
 
 Route::get('/book/add','book/add');             //添加页面
 Route::post('/book/addDo','book/addDo');             //添加逻辑
-Route::get('/book/list','book/bookList');             //列表
+Route::get('/book/`li`st','book/bookList');             //列表
 Route::get('/book/delete/:id','book/del');             //删除
 
 
 
 Route::get('test/addstu','test/addStu');        //随机添加数据
 Route::get('test/add100','test/add100');        //随机添加数据
+Route::get('test/form','test/form1');
+Route::post('test/test1','test/test1');
 
 
 //电影
@@ -57,6 +59,8 @@ Route::post('seat/booking','movie/booking');        //作为预订
 Route::get('prize','prize/index');          //抽奖页面
 
 
+//订单
+Route::get('order/list','orders/olist');            //订单列表
 
 
 
